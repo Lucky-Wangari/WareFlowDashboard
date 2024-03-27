@@ -1,3 +1,5 @@
+
+
 'use client'
 import { useState } from 'react';
 import dayjs from 'dayjs';
@@ -15,6 +17,7 @@ import {
   IconChevronDown,
   IconChevronUp,
 } from '@tabler/icons-react';
+import { DoubleNavbar } from '../components/DoubleNavbar';
 
 export default function StatsControls() {
   const [date, setDate] = useState(new Date(2021, 9, 24));
@@ -25,23 +28,23 @@ export default function StatsControls() {
   ].map((stat, index) => (
     <div key={index} className={`flex flex-col ${index < 2 ? 'mr-4' : ''}`}>
       <Paper
-        className={`pt-4 pb-6 px-4 h-[500px] w-[800px] flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
+        className={`pt-4 pb-6 px-4 h-[400px] w-[688px] flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
           index < 2 ? 'mb-' : ''
         }`}
       >
-        <div className='flex items-center'>
+        <div className='flex items-center justify-center pt-20'>
           <stat.icon
-            style={{ width: rem(32), height: rem(32) }}
-            className="text-blue-600"
+            style={{ width: '12rem', height: '12rem' }}        
+            className="text-green-300"
             stroke={1.5}
           />
-          <Text className="text-m font-semibold uppercase text-gray-600 ml-2">
+        </div>
+        <div >
+          <Text className="text-m font-semibold uppercase text-gray-600">
             {stat.label}
           </Text>
-        </div>
-        <div className='flex  justify-center'>
-          <Text className="text-sm font-semibold text-black ">
-            <span className="font-bold text-4xl">
+          <Text className="text-sm font-semibold text-black mt-2">
+            <span className="font-bold text-xl">
               {Math.floor(Math.random() * 6 + 4)} Invoices
             </span>{' '}
           </Text>
@@ -53,32 +56,32 @@ export default function StatsControls() {
   const bikeCard = (
     <Paper
       key="bike"
-      className={`h-[300px] pt-4 pb-6 px-4 w-[1620px] bg-white border border-gray-300 rounded-md mb-4`}
+      className={`h-[400px] pt-4 pb-6 px-4 w-full bg-white border border-gray-300 rounded-md mb-4`}
     >
-      <div className="flex items-center">
+      <div className="flex items-center justify-center">
         <IconBike
-          style={{ width: rem(32), height: rem(32) }}
-          className="text-blue-600 mr-2"
+          style={{ width: '12rem', height: '12rem' }}
+          className="text-green-300 mr-2"
           stroke={1.5}
         />
+      </div>
+      <div className='pt-20'>
         <Text className="text-m font-semibold uppercase text-gray-600">
           Total Pending Invoices
         </Text>
-      </div>
-      <div className='flex justify-center'>
-        <Text className="text-sm font-semibold text-black">
-          <span className="font-bold text-4xl">{Math.floor(Math.random() * 6 + 4)} Invoices</span> 
+        <Text className="text-sm font-semibold text-black mt-2">
+          <span className="font-bold text-xl">{Math.floor(Math.random() * 6 + 4)} Invoices</span> 
         </Text>
       </div>
     </Paper>
   );
 
   return (
-    <MantineProvider>
-      <div className=" bg-gradient-to-b from-green-300 to-yellow-200 p-8 rounded-md flex h-screen">
+    <DoubleNavbar>
+      <div className=" bg-gradient-to-b from-green-300 to-yellow-200 p-8 rounded-md flex h-screen w-[1550px]">
         <div className="flex flex-col mr-8">
           <UnstyledButton
-            className="h-[28px] w-full flex justify-center items-center rounded-md transition duration-200 ease-in-out hover:bg-blue-500 hover:text-white"
+            className="h-[28px]  flex justify-center items-center rounded-md transition duration-200 ease-in-out hover:bg-green-100 hover:text-black"
             onClick={() =>
               setDate((current) => dayjs(current).add(1, 'day').toDate())
             }
@@ -91,10 +94,10 @@ export default function StatsControls() {
           </UnstyledButton>
 
           <div className="flex-1 flex flex-col justify-center">
-            <Text className="text-4xl font-semibold text-white text-center mb-1">
+            <Text className="text-4xl font-semibold text-black text-center mb-1">
               {dayjs(date).format('DD')}
             </Text>
-            <Text className="text-xs text-white text-center">
+            <Text className="text-xs text-black text-center">
               {dayjs(date).format('MMMM')}
             </Text>
           </div>
@@ -117,6 +120,7 @@ export default function StatsControls() {
           {bikeCard}
         </div>
       </div>
-    </MantineProvider>
+    </DoubleNavbar>
   );
 }
+

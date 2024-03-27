@@ -2,6 +2,7 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { MantineProvider, Table } from '@mantine/core';
+import { DoubleNavbar } from '../components/DoubleNavbar';
 
 const TableScrollAreaComponent = () => {
   const data = [
@@ -40,7 +41,7 @@ const TableScrollAreaComponent = () => {
   const router = useRouter();
 
   const handleRowClick = () => {
-    router.push(`/invoice`)
+    router.push(`/invoice`);
   };
 
   const rows = data.map((row, index) => (
@@ -50,25 +51,28 @@ const TableScrollAreaComponent = () => {
         <Table.Td>{row.email}</Table.Td>
         <Table.Td>{row.company}</Table.Td>
       </Table.Tr>
-      <Table.Tr className="border-b border-black "></Table.Tr>
+      <Table.Tr className="border-t border-black "></Table.Tr>
     </React.Fragment>
   ));
 
   return (
-    <MantineProvider>
-      <Table miw={700} style={{ height: '500px'}} className="mantine-provider justify-center items-center h-screen w-3/4 ">
-        <Table.Thead >
-          <Table.Tr >
-            <Table.Th className="py-4 pr-60 text-xl">Name</Table.Th>
-            <Table.Th className="pr-60 text-xl">Email</Table.Th>
-            <Table.Th className="pr-40 text-xl">Company</Table.Th>
-          </Table.Tr>
-        </Table.Thead >
-        <Table.Tbody className="border-t border-black">{rows}</Table.Tbody>
-      </Table>
-    </MantineProvider>
+    <DoubleNavbar>
+      <div className="flex justify-center items-center ">
+        <div className="md:ml-10">
+          <Table style={{ height: '600px' }} className="mantine-provider w-full md:w-3/4">
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th className="py-4 pr-4 md:pr-60 text-xl ">Name</Table.Th>
+                <Table.Th className="pr-4 md:pr-60 text-xl">Email</Table.Th>
+                <Table.Th className="pr-4 md:pr-40 text-xl">Company</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody className=" border-t border-black">{rows}</Table.Tbody>
+          </Table>
+        </div>
+      </div>
+    </DoubleNavbar>
   );
-}
+};
 
-export default TableScrollAreaComponent
-
+export default TableScrollAreaComponent;

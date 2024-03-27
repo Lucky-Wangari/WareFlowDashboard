@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     if (redirect) {
-      router.push('/dashboard');
+      router.push('/overview');
     }
   }, [redirect, router]);
 

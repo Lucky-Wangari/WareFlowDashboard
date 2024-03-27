@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { MantineProvider, Title, Tooltip, UnstyledButton } from '@mantine/core';
 import { IconHome2, IconGauge, IconDeviceDesktopAnalytics } from '@tabler/icons-react'; 
@@ -12,7 +13,7 @@ const mainLinksMockdata = [
 const linksMockdata = [
   { label: 'Dashboard', href: '/overview' },
   { label: 'Account', href: '/tablescrollarea' }, 
-  { label: 'Orders', href: '/invoice' },
+  { label: 'Orders', href: '/staticnavbar' },
   { label: 'Clients', href: '/clients' },
 ];
 
@@ -41,7 +42,7 @@ export function DoubleNavbar({children  }) {
   const links = linksMockdata.map((link) => (
     <Link href={link.href} key={link.label}>
       <div
-        className="block text-gray-700 font-medium px-4 py-2 rounded-md hover:bg-gray-200 transition duration-300"
+        className="block text-gray-700 font-medium px-4 py-2 rounded-md hover:bg-green-300 transition duration-300"
         data-active={active === link.label || undefined}
         onClick={() => setActive(link.label)}
       >
@@ -52,6 +53,7 @@ export function DoubleNavbar({children  }) {
 
   return (
     <MantineProvider>
+        <div className='flex  '>
         <nav className="bg-green-100 h-screen w-72 flex flex-col border-r border-gray-300-dark rounded-tl-lg rounded-br-lg">
         <div className="flex-1 flex">
           <div className="flex flex-col items-center pt-16 flex-0 w-16 bg-body border-r ">
@@ -65,7 +67,8 @@ export function DoubleNavbar({children  }) {
           </div>
         </div>
       </nav>
-      <div className="flex-1">{children}</div> 
+      <div >{children}</div> 
+        </div>
     </MantineProvider>
   );
 }
