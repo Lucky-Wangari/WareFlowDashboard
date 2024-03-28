@@ -8,15 +8,15 @@ const data = [
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png',
     name: 'Robert Wolfkisser',
-    job: 'Engineer',
-    email: 'rob_wolf@gmail.com',
+    job: 'Manager',
+    email: 'rob@gmail.com',
     phone: '+44 (452) 886 09 12',
   },
   {
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-7.png',
     name: 'Jill Jailbreaker',
-    job: 'Engineer',
+    job: 'Supplier',
     email: 'jj@breaker.com',
     phone: '+44 (934) 777 12 76',
   },
@@ -24,7 +24,7 @@ const data = [
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-2.png',
     name: 'Henry Silkeater',
-    job: 'Designer',
+    job: 'Delivery',
     email: 'henry@silkeater.io',
     phone: '+44 (901) 384 88 34',
   },
@@ -32,8 +32,8 @@ const data = [
     avatar:
       'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-3.png',
     name: 'Bill Horsefighter',
-    job: 'Designer',
-    email: 'bhorsefighter@gmail.com',
+    job: 'Supplier',
+    email: 'bhorser@gmail.com',
     phone: '+44 (667) 341 45 22',
   },
   {
@@ -55,11 +55,11 @@ const jobColors: Record<string, string> = {
 export default function UsersTable() {
 
   const rows = data.map((item, index) => (
-    <Table.Tr key={index} className="py-20 verticalSpacing=l mx-auto w-full lg:w-3/4 ">
-      <Table.Td className="py-8 flex items-center"> 
-      <Avatar size={30} src={item.avatar} radius="full" className="mr-2" style={{ width: '30px', height: '30px' }} /> 
+    <Table.Tr key={index} className=" verticalSpacing=l mx-auto w-[900px] lg:w-3/4  border-t border-black">
+      <Table.Td className=" flex items-center "> 
+      <Avatar size={30} src={item.avatar} radius="full" className='pl-10 py-4' style={{ width: '90px', height: '90px' }} /> 
                    <div>
-          <Text fz="sm" fw={500}>
+          <Text fz="sm" fw={500} className='pl-4'>
             {item.name}
           </Text>
         </div>
@@ -88,25 +88,29 @@ export default function UsersTable() {
           </ActionIcon>
         </Group>
       </Table.Td>
-    </Table.Tr>
+    </Table.Tr >
   ));
 
   return (
     <DoubleNavbar>
-      <Table verticalSpacing="l" className='mr-6'>
+       <div className="float-right pt-8 ">
+       <div className="md:ml-60 ">
+      <Table style={{ height: '600px' }} >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th className="px-4 py-2">Employee</Table.Th>
-            <Table.Th className="px-4 py-2">Job title</Table.Th>
-            <Table.Th className="px-4 py-2">Email</Table.Th>
-            <Table.Th className="px-4 py-2">Phone</Table.Th>
-            <Table.Th className="px-4 py-2" />
+            <Table.Th className="px- py-2 text-xl">Employee</Table.Th>
+            <Table.Th className="px-4 py-2 text-xl">Job title</Table.Th>
+            <Table.Th className="px-4 py-2 text-xl">Email</Table.Th>
+            <Table.Th className="px-4 py-2 text-xl">Phone</Table.Th>
+            <Table.Th className="px-4 py-2 " />
           </Table.Tr>
         </Table.Thead>
-        <Table.Tbody>
+        <Table.Tbody >
           {rows}
         </Table.Tbody>
       </Table>
+      </div>
+      </div>
     </DoubleNavbar>
   );
 }

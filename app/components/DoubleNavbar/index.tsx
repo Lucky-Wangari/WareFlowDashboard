@@ -12,8 +12,7 @@ const mainLinksMockdata = [
 
 const linksMockdata = [
   { label: 'Dashboard', href: '/overview' },
-  { label: 'Account', href: '/tablescrollarea' }, 
-  { label: 'Orders', href: '/staticnavbar' },
+  { label: 'Invoices', href: '/tablescrollarea' }, 
   { label: 'Clients', href: '/clients' },
 ];
 

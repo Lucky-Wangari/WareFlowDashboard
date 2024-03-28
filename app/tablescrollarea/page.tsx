@@ -46,7 +46,7 @@ const TableScrollAreaComponent = () => {
 
   const rows = data.map((row, index) => (
     <React.Fragment key={index}>
-      <Table.Tr onClick={handleRowClick} className="cursor-pointer">
+      <Table.Tr onClick={handleRowClick} className="cursor-pointer hover:bg-green-100">
         <Table.Td>{row.name}</Table.Td>
         <Table.Td>{row.email}</Table.Td>
         <Table.Td>{row.company}</Table.Td>
@@ -58,7 +58,7 @@ const TableScrollAreaComponent = () => {
   return (
     <DoubleNavbar>
       <div className="flex justify-center items-center ">
-        <div className="md:ml-10">
+        <div className="md:ml-60 ">
           <Table style={{ height: '600px' }} className="mantine-provider w-full md:w-3/4">
             <Table.Thead>
               <Table.Tr>
