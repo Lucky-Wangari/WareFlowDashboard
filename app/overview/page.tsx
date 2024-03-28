@@ -24,9 +24,9 @@ export default function StatsControls() {
     { icon: IconRun, label: 'Total Invoices Received' },
     { icon: IconSwimming, label: 'Total Invoices Cleared' },
   ].map((stat, index) => (
-    <div key={index} className={`flex flex-col ${index < 2 ? 'mr-4' : ''} `} >
+    <div key={index} className={`flex ${index < 2 ? 'mr-4' : ''} `} >
       <Paper
-        className={`pt-4 pb-6 px-4 h-[450px] w-[688px] flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
+        className={`pt-4 pb-6 px-4 h-[450px] w-[588px] mb-2 flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
           index < 2 ? 'mb-' : ''
         }`}
       >
@@ -54,7 +54,7 @@ export default function StatsControls() {
   const bikeCard = (
     <Paper
       key="bike"
-      className={`h-[360px] pt-4 pb-10 px-4 w-full bg-white border border-gray-300 rounded-md `}
+      className={`h-[360px] pt-4 pb-10 px-4 w-[1187px] bg-white border border-gray-300 rounded-md `}
     >
       <div className="flex items-center justify-center">
         <IconBike
@@ -78,9 +78,9 @@ export default function StatsControls() {
     <DoubleNavbar>
       <DoubleHeader/>
       <div className=" bg-gradient-to-b from-green-300 to-yellow-200 p-8 rounded-md flex h-[850px] w-[1550px] " >
-        <div className="flex flex-col mr-8">
+        <div className="flex flex-col mr-40">
           <UnstyledButton
-            className="h-[28px]  flex justify-center items-center rounded-md transition duration-200 ease-in-out hover:bg-green-100 hover:text-black"
+            className="h-[28px] flex justify-center items-center rounded-md transition duration-200 ease-in-out hover:bg-green-100 hover:text-black"
             onClick={() =>
               setDate((current) => dayjs(current).add(1, 'day').toDate())
             }
