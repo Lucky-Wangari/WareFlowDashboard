@@ -1,6 +1,6 @@
 
 'use client'
-
+import {NextPage} from 'next'
 import { MantineProvider } from '@mantine/core';
 import { useState, useEffect } from 'react';
 import Home from '../app/home/page';
@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { AppProps } from 'next/app';
 import { DoubleNavbar } from './components/DoubleNavbar';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const Page:NextPage =()=> {
   const [redirect, setRedirect] = useState(false);
   const router = useRouter();
 
@@ -28,9 +28,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <MantineProvider>
-      {redirect ? <DoubleNavbar children={undefined} /> : <Home />}
+      {redirect ? <DoubleNavbar /> : <Home />}
     </MantineProvider>
   );
 }
 
-export default MyApp;
+export default Page;

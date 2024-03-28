@@ -1,15 +1,14 @@
-
 'use client'
+import React from 'react';
+import { DoubleNavbar } from '../components/DoubleNavbar';
+import Home from '../home/page';
 
-import { DoubleNavbar } from "../components/DoubleNavbar";
-
-function MyPage() {
+const Page: React.FC = () => {
   return (
     <div>
-      <DoubleNavbar children={undefined} />
-     
+
     </div>
   );
-}
+};
 
-export default MyPage;
+export default Page;

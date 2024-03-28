@@ -1,8 +1,13 @@
 'use client'
+
 import React, { useState } from 'react';
 import { MantineProvider, Title, Tooltip, UnstyledButton } from '@mantine/core';
-import { IconHome2, IconGauge, IconDeviceDesktopAnalytics } from '@tabler/icons-react'; 
+import { IconHome2, IconGauge, IconDeviceDesktopAnalytics } from '@tabler/icons-react';
 import Link from 'next/link';
+
+interface DoubleNavbarProps {
+  children?: React.ReactNode;
+}
 
 const mainLinksMockdata = [
   { icon: IconHome2, label: 'Home' },
@@ -12,11 +17,11 @@ const mainLinksMockdata = [
 
 const linksMockdata = [
   { label: 'Dashboard', href: '/overview' },
-  { label: 'Invoices', href: '/tablescrollarea' }, 
+  { label: 'Invoices', href: '/tablescrollarea' },
   { label: 'Clients', href: '/clients' },
 ];
 
-export function DoubleNavbar({children  }) {
+export function DoubleNavbar({ children }: DoubleNavbarProps) {
   const [active, setActive] = useState('Home');
 
   const mainLinks = mainLinksMockdata.map((link) => (
@@ -52,22 +57,22 @@ export function DoubleNavbar({children  }) {
 
   return (
     <MantineProvider>
-        <div className='flex  '>
+      <div className='flex'>
         <nav className="bg-green-100 h-screen w-72 flex flex-col border-r border-gray-300-dark rounded-tl-lg rounded-br-lg">
-        <div className="flex-1 flex">
-          <div className="flex flex-col items-center pt-16 flex-0 w-16 bg-body border-r ">
-            {mainLinks}
+          <div className="flex-1 flex">
+            <div className="flex flex-col items-center pt-16 flex-0 w-16 bg-body border-r ">
+              {mainLinks}
+            </div>
+            <div className="flex-1 bg-gray-100-dark">
+              <Title order={4} className="font-sans font-semibold text-xl p-4">
+                {active}
+              </Title>
+              {links}
+            </div>
           </div>
-          <div className="flex-1 bg-gray-100-dark">
-            <Title order={4} className="font-sans font-semibold text-xl p-4">
-              {active}
-            </Title>
-            {links}
-          </div>
-        </div>
-      </nav>
-      <div >{children}</div> 
-        </div>
+        </nav>
+        <div>{children}</div>
+      </div>
     </MantineProvider>
   );
 }
