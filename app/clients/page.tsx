@@ -2,6 +2,7 @@
 import { Avatar, Badge, Table, Group, Text, ActionIcon, Anchor, rem } from '@mantine/core';
 import { IconPencil, IconTrash } from '@tabler/icons-react';
 import { DoubleNavbar } from '../components/DoubleNavbar';
+import { DoubleHeader } from '../components/DoubleHeader';
 
 const data = [
   {
@@ -67,7 +68,7 @@ export default function UsersTable() {
 
       <Table.Td className="py-4">
         <Badge color={jobColors[item.job.toLowerCase()]} variant="light" className="px-3 py-1">
-          {item.job}
+          {item.job}pt-10 pb-10
         </Badge>
       </Table.Td>
       <Table.Td className="py-4">
@@ -93,6 +94,7 @@ export default function UsersTable() {
 
   return (
     <DoubleNavbar>
+      <DoubleHeader/>
        <div className="float-right pt-8 ">
        <div className="md:ml-60 ">
       <Table style={{ height: '600px' }} >

@@ -6,7 +6,6 @@ export default function Home() {
   const router = useRouter();
   const [showWelcome, setShowWelcome] = useState(false);
 
-  // Trigger animation when component mounts
   useEffect(() => {
     setShowWelcome(true);
   }, []);

@@ -71,4 +71,3 @@ export function DoubleNavbar({children  }) {
     </MantineProvider>
   );
 }
-

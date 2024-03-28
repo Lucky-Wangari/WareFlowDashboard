@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { MantineProvider, Table } from '@mantine/core';
 import { DoubleNavbar } from '../components/DoubleNavbar';
+import { DoubleHeader } from '../components/DoubleHeader';
 
 const TableScrollAreaComponent = () => {
   const data = [
@@ -57,7 +58,8 @@ const TableScrollAreaComponent = () => {
 
   return (
     <DoubleNavbar>
-      <div className="flex justify-center items-center ">
+      <DoubleHeader/>
+      <div className="flex justify-center items-center  ">
         <div className="md:ml-60 ">
           <Table style={{ height: '600px' }} className="mantine-provider w-full md:w-3/4">
             <Table.Thead>
