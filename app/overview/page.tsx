@@ -26,7 +26,7 @@ export default function StatsControls() {
   ].map((stat, index) => (
     <div key={index} className={`flex flex-col ${index < 2 ? 'mr-4' : ''} `} >
       <Paper
-        className={`pt-4 pb-6 px-4 h-[400px] w-[688px] flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
+        className={`pt-4 pb-6 px-4 h-[300px] w-[600px] flex flex-col justify-between bg-white border border-gray-300 rounded-md ${
           index < 2 ? 'mb-' : ''
         }`}
       >
